@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+}
+
+group 'win.roto.client'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Version is outdated for injection testing.
+    implementation 'org.apache.logging.log4j:log4j-web:2.12.1'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'win.roto.client.Main'
+        attributes "Multi-Release": true
+    }
+    from {
+        duplicatesStrategy = 'include'
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}

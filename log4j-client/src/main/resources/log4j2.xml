@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- https://velog.io/@bread_dd/Log4j-2-%EC%A0%9C%EB%8C%80%EB%A1%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0 -->
+<Configuration status="INFO">
+    <Properties>
+        <Property name="logNm">Spring Log4j2 Test</Property>
+        <Property name="layoutPattern">[%C] - %m%n</Property>
+    </Properties>
+    <Appenders>
+        <Console name="Console_Appender" target="SYSTEM_OUT">
+            <PatternLayout pattern="${layoutPattern}"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="TRACE" additivity="false">
+            <AppenderRef ref="Console_Appender"/>
+        </Root>
+
+    </Loggers>
+</Configuration>
